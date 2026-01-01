@@ -1,38 +1,36 @@
-# Random Number Sensor for Home Assistant
+# Random Sensor with History Backfill
 
-This integration allows you to create multiple virtual sensors that generate random values at a specific interval.
+A Home Assistant integration that creates sensors which generate random numbers at specified intervals and pre-populates historical data upon setup.
 
-## Local Installation
-1.  Access your Home Assistant files (via Samba, SSH, or VS Code add-on).
-2.  Navigate to your `config` directory.
-3.  If it doesn't exist, create a folder named `custom_components`.
-4.  Create a folder named `random_sensor` inside `custom_components`.
-5.  Copy all the files from this repository into that folder.
-6.  **Restart Home Assistant.**
-7.  In the HA UI, go to **Settings** -> **Devices & Services**.
-8.  Click **Add Integration** and search for "Random Number Generator".
+## Features
+- **Configurable Range**: Set Min and Max values per sensor.
+- **Configurable Interval**: Choose how often the value changes.
+- **Historical Backfill**: Generates past data points so your graphs aren't empty when you first install it.
 
-## Configuration
-When adding the integration, you can configure:
-- **Name**: The name of the sensor.
-- **Minimum Value**: The lowest possible random number.
-- **Maximum Value**: The highest possible random number.
-- **Interval**: How often (in seconds) the value should update.
+## Installation via HACS (Recommended)
+1. Open **HACS** in Home Assistant.
+2. Click the three dots in the top right corner and select **Custom repositories**.
+3. Add the URL of this repository and select **Integration** as the category.
+4. Click **Install**.
+5. **Restart** Home Assistant.
 
-## How to Publish
-To share this with the community, the best way is via **HACS (Home Assistant Community Store)**.
+## Manual Installation
+1. Copy the `custom_components/random_sensor` directory into your HA `config/custom_components` directory.
+2. Restart Home Assistant.
 
-### 1. Prepare GitHub Repository
-- Create a new public repository on GitHub.
-- Push your `custom_components/random_sensor/` files to the repo. 
-- Ensure your structure looks like this in the repo:
+## Setup
+1. Go to **Settings > Devices & Services**.
+2. Click **Add Integration**.
+3. Search for **Random Number Generator**.
+4. Follow the configuration steps:
+   - **Name**: "My Random Sensor"
+   - **Min**: 0
+   - **Max**: 100
+   - **Interval**: 60 (updates every minute)
+   - **Historic Items**: 50 (will create 50 points of data starting from 50 minutes ago)
 
-
-### 2. Add to HACS (For personal use/testing)
-- Open HACS in your Home Assistant.
-- Click the three dots (top right) and select **Custom repositories**.
-- Paste your GitHub URL and select **Integration** as the category.
-
-### 3. Share with Everyone
-- To make it searchable for everyone in HACS, you must submit a Pull Request to the [HACS Default Repository](https://github.com/hacs/default).
-- Ensure you have a valid `manifest.json` and a `hacs.json` file (optional but recommended for HACS features).
+## Development
+To update the integration:
+1. Push changes to GitHub.
+2. Create a new GitHub Release.
+3. HACS will automatically detect the update.
