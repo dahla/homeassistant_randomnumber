@@ -1,0 +1,10 @@
+{
+  "domain": "randomnumber_sensor",
+  "name": "Random Number Generator",
+  "documentation": "https://github.com/dahla/homeassistant_randomnumber",
+  "dependencies": [],
+  "codeowners": ["@dahla"],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "version": "1.0.0"
+}

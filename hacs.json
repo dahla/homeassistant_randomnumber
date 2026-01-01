@@ -1,0 +1,6 @@
+{
+  "name": "Random Number Generator",
+  "content_type": "integration",
+  "domains": ["randomnumber_sensor"],
+  "iot_class": "local_polling"
+}
